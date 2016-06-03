@@ -1,0 +1,146 @@
+﻿<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn MATLAB CN</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" href="../css/style.min.css">
+    
+</head>
+<body>
+    <div id="wrapper" class="wrapper">
+       
+        <main>
+            <div class="container">
+                <section>
+                    <h1>第2节 符号数字及表达式的操作</h1>
+                    <div id="github-icons"></div>
+					<h2>符号数字和符号常数</h2>
+					<p> sym(Num)	<br>			
+sc=sym(Num)	  [推荐使用！]		<br>
+ 
+sym('Num')				<br>
+sc=sym('Num')
+</p>
+					<h2>基本符号变量</h2>
+					<p>para=sym(‘para’)                    %默认复数域符号变量 <br>
+ para=sym(‘para’,’Flag’)         % Flag=real, positive	<br>
+syms  para  <br>
+syms para Flag <br>
+syms  para1  para2 paraN       %定义多个符号变量，只能用“空格”分隔 <br>
+syms  para1 para2 paraN  Flag <br>
+ </p>
+ 
+					<h2>符号表达式和符号函数</h2>
+					<p>符号表达式是由基本符号对象（数字、常数、变量）、运算符、MATLAB函数命令等基本要素编写的M码。
+符号函数是为表达变量间抽象约束关系编写的M码，需指明变量名。
+</p>
+					
+					
+					<h2>自由符号变量(x, y)和符号参数(a, b)</h2>
+					<p>symvar(expression) <br>
+symvar(expression, n)
+</p>
+					
+					<h2>符号对象的识别 </h2>
+					<p>注意：有的函数命令适用于多种数据对象（如数值、符号等），但也有的函数命令只对某种数据对象适用。<br>
+在数值计算和符号计算混合使用的情况下，由于函数指令与数据对象不适配引起的错误容易发生。为了避免这种错误，MATLAB提供了用于识别数据对象属性的指令：<br>
+ 
+class(var)	     给出变量var的数据类别（如double, sym等）<br>
+isa(var,'Obj')   若变量var是Obj代表的类别，给出1，表示“真”<br>
+whos		      给出所有MATLAB内存变量的属性<br>
+
+</p>
+
+<h2>符号数字及表达式的操作</h2>
+					<p>符号数字转换成双精度数字 <br>
+Nd=double(Num_sym)  
+
+
+<h2>符号数字的任意精度表达式</h2>
+					<p>作用：把纯符号计算变为所谓的“变精度算法”<br>
+优点：1、兼顾计算精度和速度。<br>
+    2、某些无法用“封闭解析式”表达的计算结果以简洁的“任意精度符号”表达<br>
+
+</p>
+
+<h2>符号表达式的基本操作</h2>
+					<p>simplify(EXPR) <br>
+simplify(EXPR,Name,Value)<br>
+Name是选项字符串，Value是选项内容<br>
+‘IgnoreAnalyticConstraints’true <br>
+只考虑纯粹的简化，不顾及潜在的“非完全等价可能” <br>
+‘Step’缺省值是1，表示简化轮次。 <br>
+
+</p>
+
+<h2>表达式中的置换操作</h2>
+					<p>公因子简化法       目的：使表达式简洁 <br>
+RS=subexpr(S)               从S中自动提取公因子sigma，并把采用sigma重写的S赋给RS <br>
+RS=subexpr(S,’w’)        将公因子sigma赋给w，其他同上 <br>
+[RS,w]=subexpr(S,’w’)   效果同上  <br>
+
+</p>
+
+<h2>通用置换命令</h2>
+					<p>RES=subs(ES,old,new)   无论new是什么，都产生符号结果 <br>
+ES 符号表达式、符号数组 <br>
+old 表达式、变量、变量胞元数组 <br>
+new 变量、数字、胞元数组 <br>
+
+</p>
+					
+					
+				</section>
+            </div>
+        </main>
+    </div><!-- /wrapper -->
+
+    <button id="mm-menu-toggle" class="mm-menu-toggle">Toggle Menu</button>
+    <nav id="mm-menu" class="mm-menu">
+        <div class="mm-menu__header">
+            <h2 class="mm-menu__title">作者：何广宇</h2>
+        </div>
+        <ul class="mm-menu__items">
+            <li class="mm-menu__item">
+                <a class="mm-menu__link" href="ch2.1.html">
+                    <span class="mm-menu__link-text"><i class="md md-details"></i> 第一节 </span>
+                </a>
+            </li>
+            <li class="mm-menu__item">
+                <a class="mm-menu__link" href="ch2.html">
+                    <span class="mm-menu__link-text"><i class="md md-details"></i> 返回第二章</span>
+                </a>
+            </li>
+            <li class="mm-menu__item">
+                <a class="mm-menu__link" href="ch2.3.html">
+                    <span class="mm-menu__link-text"><i class="md md-details"></i> 第三节</span>
+                </a>
+            </li>
+            <li class="mm-menu__item">
+                <a class="mm-menu__link" href="ch2.4.html">
+                    <span class="mm-menu__link-text"><i class="md md-details"></i> 第四节</span>
+                </a>
+            </li>
+            <li class="mm-menu__item">
+                <a class="mm-menu__link" href="ch2.5.html">
+                    <span class="mm-menu__link-text"><i class="md md-details"></i> 第五节</span>
+                </a>
+            </li>
+            <li class="mm-menu__item">
+                <a class="mm-menu__link" href="#">
+                    <span class="mm-menu__link-text"><i class="md md-person"></i> 关于</span>
+					<p>内容号：16.06.03.1</p>
+                </a>
+            </li>
+        </ul>
+    </nav><!-- /nav -->
+
+    <script src="../js/production/materialMenu.min.js"></script>
+    <script>
+	  var menu = new Menu;
+    </script>
+</body>
+</html>
